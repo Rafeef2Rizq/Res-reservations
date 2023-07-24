@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div >
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex m-2 p-2">
                 <a href="{{route('admin.category.index')}}" class="px-4 py-2 bg-indigo-700 hover:bg-indigo rounded-lg text-white">Category List</a>

@@ -15,7 +15,7 @@
                 <form method="post" action="{{route('admin.category.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-6">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your name</label>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Category name</label>
                         <input type="text" name="name" id="name" class=" bg-transparent border  text-gray-900 sm:text-sm rounded-lg focus:ring-2 focus:ring-fuchsia-50 focus:border-fuchsia-300 block w-full p-2.5 dark:text-white @error('name') border-red-400 @enderror"  >
                         @error('name')
                         <div class="text-sm text-red-400">{{ $message }}</div>
@@ -24,7 +24,7 @@
                   
                     <div class="mb-6">
 
-                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your description</label>
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Category description</label>
                         <textarea id="description" name="description" rows="4" class="bg-transparent border  text-gray-900 sm:text-sm rounded-lg focus:ring-2 focus:ring-fuchsia-50 focus:border-fuchsia-300 block w-full p-2.5 dark:text-white
                         @error('description') border-red-400 @enderror"
                         ></textarea>

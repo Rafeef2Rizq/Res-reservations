@@ -72,9 +72,25 @@ foreach ($reservations as $res) {
      */
     public function update(ReservationStoreRequest $request, Reservation $reservation)
     {
+        $tableID=Table::findOrFail($request->table_id);
+        if($request->guest_number > $tableID->guest_number){
+            return back()->with('warning','please enter correct gusest number');
+        }
+        $requestDate = Carbon::parse($request->res_time);
+  $reservations = optional($tableID)->reservations ?? [];
+  $reservations = $tableID->reservations()->where('id','!=',$reservation->id)->get();
+  foreach ($reservations as $res) {
+      // Convert the reservation date to a Carbon object
+      $reservationDate = Carbon::parse($res->res_time);
+  
+      // Check if the reservation date is the same as the requested date
+      if ($reservationDate->format('Y-m-d') == $requestDate->format('Y-m-d')) {
+          return back()->with('warning', 'The table is reserved for this date');
+      }
         $reservation->update($request->validated());
         return to_route('admin.reservation.index')->with('success','Reservation updated successfully');
     }
+}
 
     /**
      * Remove the specified resource from storage.

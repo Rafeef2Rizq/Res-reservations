@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-8">
+    <div class="py-4">
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
             <div class="flex p-2">
                 <a href="{{route('admin.reservation.index')}}" class="px-4 py-2 bg-indigo-700 hover:bg-indigo rounded-lg text-white">Tables List</a>
